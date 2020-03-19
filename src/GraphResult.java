@@ -11,7 +11,7 @@ public class GraphResult
     {
         //Park p = createRandomPark(20, 200, "La Ronde");
 
-        int[] waitTime0 = {0, 0, 0, 0, 0, 0, 0, 0, 1, 5, 20, 30, 45, 60, 55, 30, 25, 5, 1, 0, 0, 0, 0, 0};
+        double[] waitTime0 = {0, 0, 0, 0, 0, 0, 0, 10, 30, 50, 120, 450, 300, 290, 240, 165, 100, 80, 70, 60, 30, 15, 0, 0};
 
         Attraction a0 = new Attraction(200, 200, 200, "Plaza", waitTime0);
         Attraction a1 = new Attraction(100,200,200, "Carousel", waitTime0);
@@ -49,7 +49,7 @@ public class GraphResult
         p.addAttract(a8);
         p.addAttract(a9);
 
-        int[][] results = SimulatedAnnealing.simAnneal(p, 10);
+        int[][] results = SimulatedAnnealing.simAnneal(p, 80);
 
         double[] x = new double[results.length];
         double[] y = new double[results.length];

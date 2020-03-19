@@ -3,10 +3,10 @@ public class SimulatedAnnealing
     public static int[][] simAnneal(Park p, double speed)
     {
         // initial temperature.
-        double temperature = 10000;
+        double temperature = 100000;
 
         // cooling rate
-        double coolRate = 0.001;
+        double coolRate = 0.0001;
 
         // initial tsp solution
         TSP currentSolution = new TSP(p, speed);
@@ -24,6 +24,7 @@ public class SimulatedAnnealing
         Attraction temp;
         double currentEnergy = 0;
         double newEnergy = 0;
+        int counter = 0;
 
         while (temperature > 1)
         {
@@ -53,10 +54,14 @@ public class SimulatedAnnealing
                 bestSolution = new TSP(currentSolution, speed);
             }
 
-            // Printing out current best energy
-            //System.out.println("Current best at: " + bestSolution.getDistance());
+            //Printing out current energy
+            if (counter % 1000 == 0)
+            {
+                System.out.println(currentSolution.getTimeTravelled());
+            }
 
             temperature = temperature * (1 - coolRate);
+            counter++;
         }
 
 

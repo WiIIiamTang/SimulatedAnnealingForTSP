@@ -6,7 +6,7 @@ public class Attraction
     private int gridSpace;
 
     //private int[] waitTimes = {0, 0, 2, 4, 6, 10, 12, 8, 6, 5, 2, 0, 0, 0, 2, 4, 6, 10, 12, 8, 6, 5, 2, 0};
-    private int[] waitTimes = new int[24]; //default wait times are set to zero
+    private double[] waitTimes = new double[24]; //default wait times are set to zero
 
     public Attraction(int gridSpace)
     {
@@ -25,7 +25,7 @@ public class Attraction
         this.y = y;
     }
 
-    public Attraction(int x, int y, int gridSpace, int[] waitTimes)
+    public Attraction(int x, int y, int gridSpace, double[] waitTimes)
     {
         this.name = "NULL";
         this.gridSpace = gridSpace;
@@ -38,7 +38,7 @@ public class Attraction
         }
     }
 
-    public Attraction(int x, int y, int gridSpace, String name, int[] waitTimes)
+    public Attraction(int x, int y, int gridSpace, String name, double[] waitTimes)
     {
         this.name = name;
         this.gridSpace = gridSpace;
@@ -67,7 +67,7 @@ public class Attraction
         this.y = (int) (Math.random() * gridSpace);
     }
 
-    public int[] getWaitTimes() {return this.waitTimes;}
+    public double[] getWaitTimes() {return this.waitTimes;}
 
     public int getX()
     {

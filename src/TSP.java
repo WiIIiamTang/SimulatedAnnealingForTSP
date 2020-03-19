@@ -10,7 +10,7 @@ public class TSP
     private double distance;
     private double timeTravelled;
     private double avgSpeed;
-    private int clock;
+    private double clock;
 
     public TSP(Park park, double avgSpeed)
     {
@@ -113,10 +113,14 @@ public class TSP
                 }
 
                 d += current.distance(next);
-                timeTravelled += current.getWaitTimes()[clock];
+                timeTravelled += current.getWaitTimes()[(int)clock];
 
-                clock = (clock + current.getWaitTimes()[clock]) % 24;
-                clock = (clock + (int) (d / avgSpeed)) % 24;
+                clock = (clock + ((current.getWaitTimes()[(int)clock]) / 60.));
+                clock = (clock + (d / avgSpeed));
+                if (clock >= 24)
+                {
+                    clock = 0.;
+                }
             }
             distance = d;
             timeTravelled += d / avgSpeed;
